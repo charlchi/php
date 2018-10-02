@@ -1,0 +1,95 @@
+body {
+	background-color: #555;
+	background-repeat: repeat;
+}
+#header {
+	position: relative;
+	background-color: #909090;
+	width: 80vw;
+	height: 11vh;
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	border-radius: 6px;
+	overflow: visible;
+	box-shadow: 10px 10px 5px #222;
+}
+#headerimg {
+	height:10vh;
+}
+#container {
+	padding: 5px;
+	margin: auto;
+	width: 75vw;
+	overflow: visible;
+}
+#center {
+	padding: 5px;
+	background-color: #909090;
+	margin: auto;
+	width:50vw;
+	height: 62vh;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #222;
+}
+#centerimg {
+	width: 50vw;
+	height: 62vh;
+}
+#left {
+	background-color: #909090;
+	float: left;
+	display: inline-block;
+	width: 11vw;
+	height: 52vh;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #222;
+}
+#right {
+	font-size: 0;
+	background-color: #909090;
+	float: right;
+	display: inline-block;
+	width: 11vw;
+	height: 52vh;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #222;
+}
+.icons {
+	display: block;
+	margin: auto;
+	padding: 1vh;
+	height: 8vh;
+}
+#bricks {
+	display: block;
+	margin: auto;
+	padding: 10px;
+	height: 10vh;
+	width: 8vw;
+	background-image: url(resources/brick.jpg); 
+}
+.smalltings {
+	margin: 10px;
+	width: 20px;
+	height: 20px;
+}
+#smallting1 {
+	position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+#smallting2 {
+	position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#magnify {
+	overflow: visible;
+	position: absolute;
+    top: 0px;
+    right: 30px;
+    height:170px;
+}
