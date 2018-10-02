@@ -13,7 +13,7 @@ if ($argc > 1)
 			array_push($out, $item);
 		}
 	}
-	sort($array, SORT_STRING);
+	sort($out, SORT_STRING);
 	foreach ($out as $str)
 	{
 		echo "$str\n";
