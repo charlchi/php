@@ -4,20 +4,14 @@
 if ($argc > 1)
 {
 	array_shift($argv);
-	$out = array();
-	foreach ($argv as $arg)
+	$str1 = array_shift($argv);
+	$array = array_filter(explode(' ', $str1));
+	$first = array_shift($array);
+	foreach ($array as $item)
 	{
-		$array = array_filter(explode(' ', $arg));
-		foreach ($array as $item)
-		{
-			array_push($out, $item);
-		}
+		echo "$item ";
 	}
-	sort($array, SORT_STRING);
-	foreach ($out as $str)
-	{
-		echo "$str\n";
-	}
+	echo "$first\n";
 }
 
 ?>
