@@ -8,9 +8,7 @@ if ($argc > 1)
 	$array = array_filter(explode(' ', $str1));
 	$first = array_shift($array);
 	foreach ($array as $item)
-	{
 		echo "$item ";
-	}
 	echo "$first\n";
 }
 
