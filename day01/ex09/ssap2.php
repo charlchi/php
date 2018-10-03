@@ -21,12 +21,12 @@ if ($argc > 1)
 		}
 	}
 	sort($out1, SORT_STRING);
+	sort($out2, SORT_STRING);
+	sort($out3, SORT_STRING);
 	foreach ($out1 as $str)
 		echo "$str\n";
-	sort($out2, SORT_STRING);
 	foreach ($out2 as $str)
 		echo "$str\n";
-	sort($out3, SORT_STRING);
 	foreach ($out3 as $str)
 		echo "$str\n";
 }
