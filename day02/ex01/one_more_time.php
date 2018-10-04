@@ -6,10 +6,25 @@
 if ($argc == 2)
 {
 	setlocale(LC_ALL, "fr-FR");
-	echo "$argv[1]\n";
-	$d = strptime($argv[1], "%A %e %M %Y %H:%i:%s");
+	$d = strptime($argv[1], "%A %e %B %Y %H:%M:%S");
 	if ($d === FALSE)
+	{
+		echo "Wrong Format\n";
 		exit();
-	echo (mktime((int)d["tm_hour"], (int)d["tm_min"], (int)d["tm_sec"], (int)d["tm_mon"], (int)d["tm_mday"], (int)d["tm_year"]));
+	}
+	$timestamp = mktime(
+		$d["tm_hour"],
+		$d["tm_min"],
+		$d["tm_sec"],
+		$d["tm_mon"],
+		$d["tm_mday"],
+		$d["tm_year"]+1900
+	);
+	if ($timestamp === false)
+	{
+		echo "Wrong Format\n";
+		exit();	
+	}
+	echo "$timestamp";
 	echo "\n";
 }
