@@ -5,7 +5,7 @@
 
 if ($argc == 2)
 {
-	setlocale(LC_ALL, "fr-FR");
+	setlocale(LC_ALL, "fr_FR");
 	$d = strptime($argv[1], "%A %e %B %Y %H:%M:%S");
 	if ($d === FALSE)
 	{
@@ -13,7 +13,7 @@ if ($argc == 2)
 		exit();
 	}
 	$timestamp = mktime(
-		$d["tm_hour"],
+		$d[ "tm_hour" ],
 		$d["tm_min"],
 		$d["tm_sec"],
 		$d["tm_mon"],

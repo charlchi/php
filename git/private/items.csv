@@ -1,0 +1,10 @@
+Milk(2l);Freshly squeezed from the cows nipple;[diary:fresh:farm:general:beverage];20;../images/milk.jpeg
+Milk(1l);Freshly squeezed from the cows nipple;[diary:fresh:farm:general:beverage];20;../images/milk.jpeg
+White bread;Great item for diabetes;[gluten:bread:flour:diabetes:general];10;../images/whitebread.jpeg
+Brown bread;Healthy alternative to whte bread;[gluten:bread:flour:general];15;../images/brownbread.jpeg
+Pasta;Italians enjoy these strands of wheat;[gluten:flour:pasta:italian:general];15;../images/tuna.jpeg
+Canned Tuna;Can of fish from the sea;[health:fish:general];12;../images/eggs.jpeg
+Eggs;Fresh chicken abortion;[cholesterol:poultry:baking:general];15;../images/coffee
+Coffee;Beans from the hills of columbia;[general:beverage];80;../images/coffee
+Apples;Green delicious;[fruit];2;../images/apples
+Oranges;Sugar bomb;[fruit];3;../images/orange
