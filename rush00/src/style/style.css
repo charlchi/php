@@ -40,7 +40,9 @@ html, body {
 .dropbtn {
     background-color: black;
     color: white;
-    padding: 16px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-right: 30px;
 	font-size: 17px;
     border: none;
 }
@@ -89,7 +91,6 @@ html, body {
 	background-color: #dfdfdf;
 	width: 250px;
 	height: calc(100vh - 200px - 60px);
-	min-height: 500px;
 	position: relative;
 }
 
@@ -98,3 +99,33 @@ html, body {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: seagreen;}
+
+input[type=text], input[type=password] {
+    width: 100%;
+	padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+button {
+    background-color: seagreen;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.block {
+	padding-left: 25vw;
+	padding-right: 25vw;
+	padding-top: 10vh;
+	
+}
