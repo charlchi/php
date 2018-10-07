@@ -2,9 +2,8 @@
 
 function validate_form($p)
 {
-	if ($p['login'] && $p['passwd'] && $p['submit'])
-		if ($p['submit'] === 'OK')
-			return true;
+	if ($p['login'] && $p['passwd'])
+		return true;
 	return false;
 }
 
@@ -29,13 +28,16 @@ $logins = false;
 if (file_exists($file))
 	$logins = unserialize(file_get_contents($file));
 
+echo $valid."hey".$file."<br/>";
+echo $logins."hey".$file."<br/>";
+
 if ($valid && !(account_exists($logins, $_POST['login'])))
 {
 	$account['login'] = $_POST['login'];
 	$account['passwd'] = hash('whirlpool', $_POST['passwd']);
 	$logins[] = $account;
 	file_put_contents($file, serialize($logins));
-	echo "OK\n";
-} else { echo "ERROR\n"; }
+
+} else { }
 
 ?>
