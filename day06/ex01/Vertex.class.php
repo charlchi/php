@@ -53,6 +53,17 @@ class Vertex
 		foreach ($doctxt as $line)
 			echo $line;
 	}
+
+	public function opposite()
+	{
+		$v = new Vertex(array(
+			'x' => -$this->_x,
+			'y' => -$this->_y,
+			'z' => -$this->_z
+		));
+		return $v;
+	}
+	
 	public function getX()
 	{
 		return $this->_x;

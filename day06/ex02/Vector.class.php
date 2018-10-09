@@ -91,9 +91,9 @@ class Vector
 	public function opposite()
 	{
 		$v = new Vertex(array(
-			'x' => $this->_x * - 1.0,
-			'y' => $this->_y * - 1.0,
-			'z' => $this->_z * - 1.0
+			'x' => -$this->_x,
+			'y' => -$this->_y,
+			'z' => -$this->_z
 		));
 		return new Vector(array('dest' => $v));
 	}

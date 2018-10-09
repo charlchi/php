@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /* ************************************************************************** */
 /*                                                                            */
@@ -8,9 +9,9 @@
 /* ************************************************************************** */
 
 
-require_once 'Vertex.class.php';
-require_once 'Vector.class.php';
-require_once 'Matrix.class.php';
+require_once '../ex01/Vertex.class.php';
+require_once '../ex02/Vector.class.php';
+require_once '../ex03/Matrix.class.php';
 require_once 'Camera.class.php';
 
 Vertex::$verbose = False;
