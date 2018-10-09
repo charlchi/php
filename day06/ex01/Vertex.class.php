@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Color.class.php';
+require_once '../ex00/Color.class.php';
 
 class Vertex
 {
@@ -15,11 +15,11 @@ class Vertex
 	{
 		if (isset($param['x']) && isset($param['y']) && isset($param['z']))
 		{
-			$this->_x = intval($param['z']);
-			$this->_y = intval($param['y']);
-			$this->_z = intval($param['z']);
+			$this->_x = floatval($param['x']);
+			$this->_y = floatval($param['y']);
+			$this->_z = floatval($param['z']);
 		}
-		$this->_w = isset($param['w']) ? $param['w'] : 1; 
+		$this->_w = isset($param['w']) ? floatval($param['w']) : 1.0; 
 		$this->_color = isset($param['color']) ? $param['color'] : new Color(array('rgb' => 0xFFFFFF));
 		if (Self::$verbose)
 		{
@@ -48,11 +48,10 @@ class Vertex
 	}
 	public static function doc()
 	{
-		echo "\n";
+		echo PHP_EOL;
 		$doctxt = file("Vertex.doc.txt");
 		foreach ($doctxt as $line)
-			echo $line.'\n';
-		echo "\n";
+			echo $line;
 	}
 	public function getX()
 	{
