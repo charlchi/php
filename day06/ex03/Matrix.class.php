@@ -1,23 +1,21 @@
 <?php
 
-require_once 'Vertex.class.php';
-require_once 'Vector.class.php';
-require_once 'Matrix.class.php';
-require_once 'Vertex.class.php';
+require_once '../ex01/Vertex.class.php';
+require_once '../ex02/Vector.class.php';
 
 class Matrix
 {
 	static $verbose = false;
 	
-	const IDENTITY = 1;
-	const SCALE = 2;
-	const RX = 3;
-	const RY = 4;
-	const RZ = 5;
-	const TRANSLATION = 6;
-	const PROJECTION = 7;
-	
-	private $_mat = array();
+	const IDENTITY = 'identity';
+	const SCALE = 'scale';
+	const RX = 'rotation_x';
+	const RY = 'rotation_y';
+	const RZ = 'rotation_z';
+	const TRANSLATION = 'translation';
+	const PROJECTION  = 'projection';
+
+	public $_mat = array();
 	private $_preset;
 	private $_scale;
 	private $_angle;
@@ -27,14 +25,14 @@ class Matrix
 	private $_near;
 	private $_far;
 
-
 	public function __construct($param)
 	{
 		$vars = array('preset', 'scale', 'angle', 'vtc', 'fov', 'ratio', 'near', 'far');
+		$presets = array('identity', 'scale', 'rotation_x', 'rotation_y', 'rotation_z', 'translation', 'projection');
 		foreach ($vars as $k)
-			${'_'.$k} = in_array($k, $param) ? $param[$k] : NULL;
-		for ($i = 0; $i < 16; $i++)
-			$this->_mat[$i] = $i % 5 ? 0.0 : 1.0;
+			$this->{'_'.$k} = array_key_exists($k, $param) ? $param[$k] : NULL;
+		$this->identity();
+		$this->{$this->_preset}();
 		if (self::$verbose)
 		{
 			if ($this->_preset == self::IDENTITY)
@@ -58,47 +56,54 @@ class Matrix
 		$format .= "y | %0.2f | %0.2f | %0.2f | %0.2f" . PHP_EOL;
 		$format .= "z | %0.2f | %0.2f | %0.2f | %0.2f" . PHP_EOL;
 		$format .= "w | %0.2f | %0.2f | %0.2f | %0.2f";
-		return (sprintf($format, $this->_mat));
+		return (vsprintf($format, $this->_mat));
 	}
 	
 	public static function doc()
 	{
-		echo "\n";
+		echo PHP_EOL;
 		$doctxt = file("Matrix.doc.txt");
 		foreach ($doctxt as $line)
-			echo $line.'\n';
-		echo "\n";
+			echo $line;
+		echo PHP_EOL;
 	}
 
 	public function mult($rhs)
 	{
-		$mat = new Matrix();
-		$m1 = $this->_mat;
-		$m2 = $rhs->_mat;
-		for ($i = 0; $i < 4; $i++)
-			for ($j = 0; $j < 4; $j++)
-				for ($p = 0; $p < 4; $p++)
-					$mat->_mat[$i + $j * 4] += $m1[$i + $p * 4] * $m2[$p + $j * 4];
+		$mat = new Matrix(array('preset' => self::IDENTITY));
+		for ($j = 0; $j < 4; $j++) {
+			$j4 = $j * 4;
+			$mat->_mat[$j4 + 0] = $this->_mat[$j4] * $rhs->_mat[0] + $this->_mat[$j4 + 1] * $rhs->_mat[0 + 4] + $this->_mat[$j4 + 2] * $rhs->_mat[0 + 8] + $this->_mat[$j4 + 3] * $rhs->_mat[0 + 12];
+			$mat->_mat[$j4 + 1] = $this->_mat[$j4] * $rhs->_mat[1] + $this->_mat[$j4 + 1] * $rhs->_mat[1 + 4] + $this->_mat[$j4 + 2] * $rhs->_mat[1 + 8] + $this->_mat[$j4 + 3] * $rhs->_mat[1 + 12];
+			$mat->_mat[$j4 + 2] = $this->_mat[$j4] * $rhs->_mat[2] + $this->_mat[$j4 + 1] * $rhs->_mat[2 + 4] + $this->_mat[$j4 + 2] * $rhs->_mat[2 + 8] + $this->_mat[$j4 + 3] * $rhs->_mat[2 + 12];
+			$mat->_mat[$j4 + 3] = $this->_mat[$j4] * $rhs->_mat[3] + $this->_mat[$j4 + 1] * $rhs->_mat[3 + 4] + $this->_mat[$j4 + 2] * $rhs->_mat[3 + 8] + $this->_mat[$j4 + 3] * $rhs->_mat[3 + 12];
+		}
 		return $mat;
 	}
 	
 	public function transformVertex($vtx)
 	{
 		$v = new Vertex(array(
-			'x' = ($vtx->getX() * $this->_mat[0]) + ($vtx->getY() * $this->_mat[1]) + ($vtx->getZ() * $this->_mat[2]) + ($vtx->getW() * $this->_mat[3]),
-			'y' = ($vtx->getX() * $this->_mat[4]) + ($vtx->getY() * $this->_mat[5]) + ($vtx->getZ() * $this->_mat[6]) + ($vtx->getW() * $this->_mat[7]),
-			'z' = ($vtx->getX() * $this->_mat[8]) + ($vtx->getY() * $this->_mat[9]) + ($vtx->getZ() * $this->_mat[10]) + ($vtx->getW() * $this->_mat[11]),
-			'w' = ($vtx->getX() * $this->_mat[11]) + ($vtx->getY() * $this->_mat[13]) + ($vtx->getZ() * $this->_mat[14]) + ($vtx->getW() * $this->_mat[15])
-			'color' = $vtx->getColor();
+			'x' => ($vtx->getX() * $this->_mat[0]) + ($vtx->getY() * $this->_mat[1]) + ($vtx->getZ() * $this->_mat[2]) + ($vtx->getW() * $this->_mat[3]),
+			'y' => ($vtx->getX() * $this->_mat[4]) + ($vtx->getY() * $this->_mat[5]) + ($vtx->getZ() * $this->_mat[6]) + ($vtx->getW() * $this->_mat[7]),
+			'z' => ($vtx->getX() * $this->_mat[8]) + ($vtx->getY() * $this->_mat[9]) + ($vtx->getZ() * $this->_mat[10]) + ($vtx->getW() * $this->_mat[11]),
+			'w' => ($vtx->getX() * $this->_mat[11]) + ($vtx->getY() * $this->_mat[13]) + ($vtx->getZ() * $this->_mat[14]) + ($vtx->getW() * $this->_mat[15]),
+			'color' => $vtx->getColor()
 		));
 		return $v;
 	}
 
-	private function identity($scale)
+	private function identity()
 	{
-		$this->_mat[0] = $scale;
-		$this->_mat[5] = $scale;
-		$this->_mat[10] = $scale;
+		for ($i = 0; $i < 16; $i++)
+			$this->_mat[$i] = $i % 5 == 0 ? 1.0 : 0.0;	
+	}
+
+	private function scale()
+	{
+		$this->_mat[0] = $this->_scale;
+		$this->_mat[5] = $this->_scale;
+		$this->_mat[10] = $this->_scale;
 		$this->_mat[15] = 1.0;
 	}
 

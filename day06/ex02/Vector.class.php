@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Vertex.class.php';
+require_once '../ex01/Vertex.class.php';
 
 class Vector
 {
@@ -91,9 +91,9 @@ class Vector
 	public function opposite()
 	{
 		$v = new Vertex(array(
-			'x' => $this->_x * -1.0,
-			'y' => $this->_y * -1.0,
-			'z' => $this->_z * -1.0
+			'x' => $this->_x * - 1.0,
+			'y' => $this->_y * - 1.0,
+			'z' => $this->_z * - 1.0
 		));
 		return new Vector(array('dest' => $v));
 	}
@@ -125,7 +125,7 @@ class Vector
 
 	public function cos(Vector $rhs)
 	{
-		return ($this->dotProduct($rhs) / (this->magnitude() * $rhs->magnitude()));
+		return ($this->dotProduct($rhs) / ($this->magnitude() * $rhs->magnitude()));
 	}
 
 	public function getX()
