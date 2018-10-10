@@ -1,3 +1,25 @@
 <- Vertex ----------------------------------------------------------------------
-Your documentation here.
+The Vertex class handles a point with x, y, z amd w components.
+
+An instance can be contructed from an array with keys 'x', 'y', 'z' and optionally 'w' as well as a Color instance with key 'color'.
+
+
+Or from distinct red, green, blue constitutives:
+new Color( array( 'red' => 255, 'green' => 255, 'blue' => 255 ) );
+
+Red, green, blue constitutives and RGB values are converted to intergers.
+Negative or > to 255 color constitutives are left as is.
+Any other use is undefined behaviour.
+
+The class provides the following methods :
+
+   add( Color $rhs );
+Adds each color constitutive and returns a new Color instance.
+
+Color   sub( Color $rhs );
+Substracts each color constitutive and returns a new Color instance.
+
+Color   mult( $f );
+
+
 ---------------------------------------------------------------------- Vertex ->
