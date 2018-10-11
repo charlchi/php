@@ -1,3 +1,14 @@
-<- Vertex ----------------------------------------------------------------------
-Your documentation here.
+<-- 
+Vertex ----------------------------------------------------------------------
+The Vertex class handles a point with x, y, z and w components.
+
+An instance can be contructed from an array:
+$v = new Vertex(array(
+			'x' => $x, // mandatory
+			'y' => $y, // mandatory
+			'z' => $z, // mandatory
+         'w' => $w, // optional, default 1.0
+          'color' => $color // optional, default white
+));
+All of these properties have getters and setters, for setters pass in a variable of the same type.
 ---------------------------------------------------------------------- Vertex ->
