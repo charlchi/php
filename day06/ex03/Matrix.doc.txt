@@ -1,3 +1,56 @@
 <- Matrix ----------------------------------------------------------------------
-Your documentation here.
+Provides an interface for quickly constructing different types of 4x4 matrices.
+
+Each preset is constructed in the following way
+
+Identity matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::IDENTITY
+));
+
+Scaling matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::SCALE,
+	'scale' = $scale; // scaling value
+));
+
+X rotation matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::RX,
+	'angle' = $angle; // rotation amount
+));
+
+Y rotation matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::RY,
+	'angle' = $angle; // rotation amount
+));
+
+Z rotation matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::RZ,
+	'angle' = $angle; // rotation amount
+));
+
+Translation matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::TRANSLATION,
+	'vtc' = new Vector('x' => $x, 'y' => $y, 'z' => $z,)$somevector; // translation vector
+));
+
+Projection matrix:
+$m = new Matrix(array(
+	'preset' => Matrix::TRANSLATION,
+	'fov' => $fov, // field of view
+	'ratio' => $ratio,
+	'near' => $near, // clippings planes
+	'far' => $far,
+));
+
+The class provides the following functions:
+public function mult($rhs);
+Multiply this Matrix by $rhs Matrix, returning a new Matrix instance.
+
+public function transformVertex($vtx);
+Multiply this Matrix by a length 4 column vector, returning a new Matrix.
 ---------------------------------------------------------------------- Matrix ->

@@ -64,12 +64,12 @@ class Camera
 
 	public function __toString()
 	{
-		$str =  "Camera( \n".
-				"+ Origine: ".$this->_origin."\n".
-				"+ tT:\n".$this->_tT."\n".
-				"+ tR:\n".$this->_tR."\n".
-				"+ tR->mult( tT ):\n".$this->_tR->mult($this->_tT)."\n".
-				"+ Proj:\n".$this->_proj."\n)";
+		$str =  "Camera( " . PHP_EOL .
+				"+ Origine: ".$this->_origin . PHP_EOL .
+				"+ tT:" . PHP_EOL .".$this->_tT" . PHP_EOL .
+				"+ tR:" . PHP_EOL .".$this->_tR" . PHP_EOL .
+				"+ tR->mult( tT ):" . PHP_EOL . $this->_tR->mult($this->_tT) . PHP_EOL .
+				"+ Proj:" . PHP_EOL . $this->_proj . PHP_EOL;
 		return ($str);
 	}
 	
@@ -79,7 +79,6 @@ class Camera
 		$doctxt = file("Camera.doc.txt");
 		foreach ($doctxt as $line)
 			echo $line;
-		echo PHP_EOL;
 	}
 
 	public function watchVertex($worldVertex)

@@ -1,0 +1,35 @@
+project.txt
+
+
+# data management:
+	add data
+	read data
+	modify data
+	remove data
+
+# user management
+	register login
+	update user info, delete
+	fill basket without being connected
+	ask for login to validate
+
+# categrories and products
+	products with several categories
+
+# administration
+	admin only access
+	user creation removal modification
+	creation, removal, modification
+
+item;description;category;price;image-url
+
+Milk(2l);Freshly squeezed from the cows nipple;[diary:fresh:farm:general:beverage];20;../images/milk
+Milk(1l);Freshly squeezed from the cows nipple;[diary:fresh:farm:general:beverage];20;../images/milk
+White bread;Great item for diabetes;[gluten:bread:flour:diabetes:general];10;../images/whitebread
+Brown bread;Healthy alternative to whte bread;[gluten:bread:flour:general];15;../images/brownbread
+Pasta;Italians enjoy these strands of wheat;[gluten:flour:pasta:italian:general];15;imageurl
+Canned Tuna;Can of fish from the sea;[health:fish:general];12;imageurl
+Eggs;Fresh chicken abortion;[cholesterol:poultry:baking:general];15;imageurl
+Coffee;Beans from the hills of columbia;[general:beverage];80;imageurl
+Apples;Green delicious;[fruit];2;imageurl
+Oranges;Sugar bomb;[fruit];3;imageurl

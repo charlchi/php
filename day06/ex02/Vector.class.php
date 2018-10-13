@@ -46,11 +46,10 @@ class Vector
 
 	public static function doc()
 	{
-		echo "\n";
+		echo PHP_EOL;
 		$doctxt = file("Vector.doc.txt");
 		foreach ($doctxt as $line)
-			echo $line.'\n';
-		echo "\n";
+			echo $line;
 	}
 
 	public function magnitude()

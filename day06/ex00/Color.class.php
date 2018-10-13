@@ -9,6 +9,7 @@ class Color
 
 	public function __construct($color)
 	{
+
 		if (isset($color['red']) && isset($color['green']) && isset($color['blue']))
 		{
 			$this->red = intval($color['red']);
@@ -21,32 +22,29 @@ class Color
 			$this->blue   = $rgb        & 255;
 		}
 		if (Self::$verbose)
-		{
-			$format = "Color( red: %3d, green: %3d, blue: %3d ) constructed.\n";
-			printf($format, $this->red, $this->green, $this->blue);
-		}
+			echo $this . " constructed" . PHP_EOL;
 	}
-	function __destruct()
+
+
+
+
+	public function __destruct()
 	{
 		if (Self::$verbose)
-		{
-			$format = "Color( red: %3d, green: %3d, blue: %3d ) destructed.\n";
-			printf($format, $this->red, $this->green, $this->blue);
-		}
+			echo $this . " destructed" . PHP_EOL;
 	}
 	
-	function __toString()
+	public function __toString()
 	{
 		$format = "Color( red: %3d, green: %3d, blue: %3d )";
 		return (sprintf($format, $this->red, $this->green, $this->blue));
 	}
 	public static function doc()
 	{
-		echo "\n";
+		echo PHP_EOL;
 		$doctxt = file("Color.doc.txt");
 		foreach ($doctxt as $line)
-			echo $line.'\n';
-		echo "\n";
+			echo $line;
 	}
 	public function add($Color)
 	{
@@ -77,5 +75,6 @@ class Color
 		);
 		return (new Color($retarr));
 	}
-}	
+}
+
 ?>

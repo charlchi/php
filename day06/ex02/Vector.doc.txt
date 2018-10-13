@@ -1,3 +1,27 @@
 <- Vector ----------------------------------------------------------------------
-Your documentation here.
+A vector implementation with x, y, z and w components as well as a color.
+To construct a new instance, pass in an array as follows:
+$vec = new Vector(array(
+	'dest' => new Vertex('x' => 0, 'y' => 0, 'z' => 0), // mandatory
+	'orig' => new Vertex('x' => 0, 'y' => 0, 'z' => 0), // optional
+));
+If 'orig' doesn't exist in the input array, the components of the vector will be equal to the components of the 'dest' vertex,
+otherwise it will be the vector equal to 'orig' to 'dest'.
+The w component is 0 by default.
+
+The class provides many normal functions expected in a vector inplementation.
+$vec1->cos($vec2) will return the cosine of the angle between 2 vectors.
+
+The following functions return floats.
+public function dotProduct(Vector $rhs);
+public function scalarProduct($k);
+public function magnitude()
+public function normalize();
+public function cos(Vector $rhs);
+
+The following functions return new vectors.
+public function add(Vector $rhs);
+public function sub(Vector $rhs);
+public function opposite();
+public function crossProduct(Vector $rhs);
 ---------------------------------------------------------------------- Vector ->
