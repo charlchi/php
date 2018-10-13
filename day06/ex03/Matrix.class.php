@@ -65,7 +65,6 @@ class Matrix
 		$doctxt = file("Matrix.doc.txt");
 		foreach ($doctxt as $line)
 			echo $line;
-		echo PHP_EOL;
 	}
 
 	public function mult($rhs)

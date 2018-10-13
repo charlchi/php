@@ -1,3 +1,31 @@
-<- Matrix ----------------------------------------------------------------------
-Your documentation here.
----------------------------------------------------------------------- Matrix ->
+<- Camera ----------------------------------------------------------------------
+Provides an interface for constructing a 3D camera.
+
+Example usage:
+
+$vtxO = new Vertex(array(\
+	'x' => 20.0,
+	'y' => 20.0,
+	'z' => 80.0
+));
+$R = new Matrix(array(
+	'preset' => Matrix::RY,
+	'angle' => M_PI
+));
+$cam  = new Camera(array(
+	'origin' => $vtxO, // origin of the camera
+	'orientation' => $R, // orientation of camera as a Matrix
+	'width' => 640, // pixel width of the screen
+	'height' => 480, // pixel height of the screen
+	'fov' => 60, // camera field of view
+	'near' => 1.0, // near clipping plane
+	'far' => 100.0 // far clipping plane
+));
+
+public function diagsym($mat);
+Returns the diagonally symmetric Matrix given another Matrix.
+
+public function watchVertex($worldVertex);
+This function uses the current Camera instance to convert a 3d point to a 2d point as a unit vector in screen space.
+
+---------------------------------------------------------------------- Camera ->

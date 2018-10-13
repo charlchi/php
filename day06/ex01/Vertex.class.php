@@ -22,25 +22,19 @@ class Vertex
 		$this->_w = isset($param['w']) ? floatval($param['w']) : 1.0; 
 		$this->_color = isset($param['color']) ? $param['color'] : new Color(array('rgb' => 0xFFFFFF));
 		if (Self::$verbose)
-		{
-			$format = "Vertex( x: %0.2f, y: %0.2f, z:%0.2f, w:%0.2f, ".$this->_color." ) constructed\n";
-			printf($format, $this->_x, $this->_y, $this->_z, $this->_w);
-		}
+			echo $this . " constructed" . PHP_EOL;
 	}
-	function __destruct()
+	public function __destruct()
 	{
 		if (Self::$verbose)
-		{
-			$format = "Vertex( x: %0.2f, y: %0.2f, z:%0.2f, w:%0.2f, ".$this->_color." ) destructed\n";
-			printf($format, $this->_x, $this->_y, $this->_z, $this->_w);
-		}
+			echo $this . " destructed" . PHP_EOL;
 	}
 
-	function __toString()
+	public function __toString()
 	{
 		if (Self::$verbose)
 		{
-			$format = "Vertex( x: %0.2f, y: %0.2f, z:%0.2f, w:%0.2f, ".$this->_color." ) )";
+			$format = "Vertex( x: %0.2f, y: %0.2f, z:%0.2f, w:%0.2f, ".$this->_color." )";
 			return (sprintf($format, $this->_x, $this->_y, $this->_z, $this->_w));
 		}
 		$format = "Vertex( x: %0.2f, y: %0.2f, z:%0.2f, w:%0.2f )";
