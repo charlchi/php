@@ -28,7 +28,7 @@ class UnholyFactory
 		if (array_key_exists($rf, $this->recruits) == false)
 		{
 			print("(Factory hasn't absorbed any fighter of type " . $rf . ")" . PHP_EOL);
-			return null;	
+			return null;
 		}
 		print("(Factory fabricates a fighter of type " . $rf . ")" . PHP_EOL);
 		return (clone $this->recruits[$rf]);
