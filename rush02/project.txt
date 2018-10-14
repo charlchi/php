@@ -1,0 +1,34 @@
+account:
+login/register
+battle stats, ranking
+
+game:
+can't exceed 4 players
+no limit on sessions
+possible to create fleet aftre joinging
+
+lobby:
+chat
+create games
+
+game zone:
+obstacles
+OOB or touching obstacles ships are destroyed
+
+turn: all ships
+order phase
+movement phase
+shoot phase
+
+spaceships:
+need all properties
+
+weapons:
+pp, short, medium, long range
+fire pattern
+
+order: 
+pp back to 0
+spend pp to fix ships
+
+movement:
